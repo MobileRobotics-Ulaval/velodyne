@@ -10,6 +10,8 @@
 <launch>
   <!-- 28 May 2015, added by Sebastien M.-->
   <node pkg="tf" type="static_transform_publisher" name="velodyne_tf" args="0 0 0.13 -0.04 0 0 ptu_mount_link velodyne 100" />
+  <node pkg="topic_tools" type="throttle" name="velodyne_republisher" args="messages velodyne_points 1.0 cloud" />
+
 
   <!-- declare arguments with default values -->
   <arg name="pcap" default="" />
